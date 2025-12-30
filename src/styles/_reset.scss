@@ -1,0 +1,70 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  background: none;
+  outline: none;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-inline-size: 100%;
+  block-size: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+dialog {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
+p {
+  margin: 0;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}

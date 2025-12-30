@@ -1,0 +1,45 @@
+@use "./vendor/garamond";
+@use "./vendor/glyphter";
+@use "./vendor/ys-text";
+@use "./vendor/normalize.css";
+
+@use "./styles/normalize" as *;
+@use "./styles/reset" as *;
+
+:root {
+  --main-bg-color: #76a4e4;
+
+  --primary-color: #375075;
+
+  --main-text-color: #000;
+}
+
+body {
+  margin: 0 auto;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var( --main-bg-color);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --main-bg-color: #76a4e4;
+
+    --primary-color: #375075;
+
+    --main-text-color: #000;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+
+    --main-bg-color: #0F2137;
+
+    --primary-color: #060C14;
+
+    --main-text-color: #fff ;
+
+  }
+}
+
