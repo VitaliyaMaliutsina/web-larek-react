@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 60px;
+  background-color: var(--primary-color);
+}
+
+.logo {
+  width: 170px;
+  height: 90px;
+}
+
+.basket {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  background-image: url("./shopping_cart.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  .basketCount {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    bottom: 37px;
+    left: 35px;
+    background-color: $category1;
+    border-radius: 50%;
+  }
+
+}
