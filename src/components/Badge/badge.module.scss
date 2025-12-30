@@ -1,0 +1,28 @@
+.cardBadge {
+  width: min-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 15px;
+  border-radius: 50px;
+}
+
+.category1 {
+  background-color: $category1;
+}
+
+.category2 {
+  background-color: $category2;
+}
+
+.category3 {
+  background-color: $category3;
+}
+
+.category4 {
+  background-color: $category4;
+}
+
+.category5 {
+  background-color: $category5;
+}
