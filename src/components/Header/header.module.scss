@@ -1,10 +1,26 @@
-.header {
+/*.header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 35px 60px;
+  padding: 25px 60px;
   background-color: var(--primary-color);
+}*/
+
+.header {
+  width: 100%;
+
+  padding: 25px 60px;
+  background-color: var(--primary-color);
+}
+
+.wrapperContent {
+  margin: 0 auto;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
