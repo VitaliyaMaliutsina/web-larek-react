@@ -8,7 +8,7 @@ export const Gallery = () => {
   return (
     <section className={styles.container}>
       {cards.map((card) => {
-        return <Card key={card.id} card={card} />;
+        return <Card key={card.id} {...card} />;
       })}
     </section>
   );
