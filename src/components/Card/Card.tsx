@@ -1,11 +1,17 @@
 import styles from "./card.module.scss";
 import { Badge } from "../Badge/Badge.tsx";
-import { categorySkills, type TBadgeVariant, type TProduct } from "../../types/types.ts";
+import { categorySkills, type TBadgeVariant } from "../../types/types.ts";
 
-type TCardProps = Omit<TProduct, "description">;
+type TCardProps = {
+  title: string;
+  price: number | null;
+  category: string;
+  image: string;
+  id: string;
+};
 
-export const Card = (card: TCardProps) => {
-  const { title, price, category, image, id } = card;
+export const Card = (props: TCardProps) => {
+  const { title, price, category, image, id } = props;
 
   const variant: TBadgeVariant = categorySkills[category];
 
