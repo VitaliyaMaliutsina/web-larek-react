@@ -1,0 +1,15 @@
+.dialog {
+
+}
+
+dialog[open] {
+  max-width: max-content;
+  padding: 25px;
+  border-radius: 30px;
+  background-color: #83FA9D;
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.84);
+  }
+
+}
