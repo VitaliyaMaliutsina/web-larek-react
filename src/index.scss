@@ -14,6 +14,8 @@
   --main-text-color: #000;
 
   --main-btn-color: #fff;
+
+  --disabled-color: #535353;
 }
 
 body {
@@ -33,6 +35,8 @@ body {
     --main-text-color: #000;
 
     --main-btn-color: #fff;
+
+    --disabled-color: #535353;
   }
 }
 
@@ -46,6 +50,8 @@ body {
     --main-text-color: #fff ;
 
     --main-btn-color: #e6d6e8;
+
+    --disabled-color: rgba(159, 159, 159, 0.53);
 
   }
 }

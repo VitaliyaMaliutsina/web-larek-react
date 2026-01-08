@@ -3,6 +3,7 @@ import { useState } from "react";
 import { CardBasket } from "../CardBasket/CardBasket.tsx";
 import { Modal } from "../Modal/Modal.tsx";
 import { Button } from "../Button/Button.tsx";
+import { Basket } from "../Basket/Basket.tsx";
 
 type Props = {};
 export const Header = (props: Props) => {
@@ -25,19 +26,7 @@ export const Header = (props: Props) => {
 
       {isOpen && (
         <Modal isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
-          {
-            <div className={styles.basketContainer}>
-              <h3 className={styles.basketTitle}>Корзина</h3>
-              <p className={styles.basketSubTitle}>Корзина пуста</p>
-              <div></div>
-              <div>
-                <Button className={styles.basketButton} type={"submit"}>
-                  оформить
-                </Button>
-                <span className={styles.basketPrice}>0 синапсов</span>
-              </div>
-            </div>
-          }
+          <Basket />
         </Modal>
       )}
     </>

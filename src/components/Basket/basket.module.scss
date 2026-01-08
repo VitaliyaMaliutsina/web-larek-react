@@ -1,0 +1,40 @@
+.basketContainer {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  row-gap: 30px;
+  width: 100%;
+  padding: 25px;
+
+  .basketTitle {
+
+  }
+
+  .basketSubTitle {
+    color: var(--disabled-color);
+  }
+
+  .cardsContainer {
+
+  }
+
+}
+
+.buttonContainer {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+
+  .basketButton {
+
+  }
+
+  .basketPrice {
+
+  }
+}
