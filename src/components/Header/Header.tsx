@@ -2,6 +2,7 @@ import styles from "./header.module.scss";
 import { useState } from "react";
 import { CardBasket } from "../CardBasket/CardBasket.tsx";
 import { Modal } from "../Modal/Modal.tsx";
+import { Button } from "../Button/Button.tsx";
 
 type Props = {};
 export const Header = (props: Props) => {
@@ -30,7 +31,9 @@ export const Header = (props: Props) => {
               <p className={styles.basketSubTitle}>Корзина пуста</p>
               <div></div>
               <div>
-                <button className={styles.basketButton}>оформить</button>
+                <Button className={styles.basketButton} type={"submit"}>
+                  оформить
+                </Button>
                 <span className={styles.basketPrice}>0 синапсов</span>
               </div>
             </div>
