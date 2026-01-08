@@ -1,6 +1,6 @@
 import styles from "./modal.module.scss";
 import { createPortal } from "react-dom";
-import { type ReactNode, useEffect, useRef } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 
 type TModalProps = React.ComponentProps<"dialog"> & {
   children: ReactNode;

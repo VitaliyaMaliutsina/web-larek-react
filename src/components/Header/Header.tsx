@@ -28,9 +28,7 @@ export const Header = (props: Props) => {
               <button onClick={() => setIsOpen(!isOpen)}>X</button>
               <h3>Корзина</h3>
               <p>Корзина пуста</p>
-              <div>
-                <CardBasket />
-              </div>
+              <div></div>
               <button>оформить</button>
               <span>0 синапсов</span>
             </>
