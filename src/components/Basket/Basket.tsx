@@ -1,6 +1,5 @@
 import styles from "./basket.module.scss";
 import { Button } from "../Button/Button.tsx";
-import { CardBasket } from "../CardBasket/CardBasket.tsx";
 
 type Props = {};
 export const Basket = (props: Props) => {
