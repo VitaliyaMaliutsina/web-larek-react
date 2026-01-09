@@ -24,4 +24,11 @@ dialog[open] {
   position: absolute;
   right: 18px;
   top: 10px;
+  width: 43px;
+  height: 43px;
+  background-image: url("./buttonClose.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
 }

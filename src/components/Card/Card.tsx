@@ -17,7 +17,6 @@ export const Card = (props: TCardProps) => {
 
   const handleOpenCard = () => {
     dispatch(openSelectedCard(id));
-    console.log("otkr", id);
   };
 
   return (

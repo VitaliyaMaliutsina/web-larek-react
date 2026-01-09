@@ -2,6 +2,7 @@ import styles from "./cardModal.module.scss";
 import { Badge } from "../Badge/Badge.tsx";
 import clsx from "clsx";
 import { categorySkills } from "../../types/types.ts";
+import { Button } from "../Button/Button.tsx";
 
 type TCardModalProps = {
   title: string;
@@ -27,7 +28,7 @@ export const CardModal = (props: TCardModalProps) => {
         <p className={clsx(styles.cardDescription, styles.scrollbar)}>{description}</p>
         <div className={styles.buttonPriceWrapper}>
           <div className={styles.buttonContainer}>
-            <button className={styles.button}>Купить</button>
+            <Button className={styles.button}>Купить</Button>
           </div>
           <span className={styles.cardPrice}>{price} синапсов</span>
         </div>

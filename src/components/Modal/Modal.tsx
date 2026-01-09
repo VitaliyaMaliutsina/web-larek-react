@@ -47,9 +47,7 @@ export const Modal = (props: TModalProps) => {
   if (!container) return null;
   return createPortal(
     <dialog ref={modalRef} onClose={onClose} className={styles.modal} onClick={handleClickOut}>
-      <button onClick={handleClickClose} className={styles.button}>
-        X
-      </button>
+      <button onClick={handleClickClose} className={styles.button}></button>
       {children}
     </dialog>,
     container,

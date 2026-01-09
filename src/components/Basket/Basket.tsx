@@ -1,10 +1,7 @@
 import styles from "./basket.module.scss";
 import { Button } from "../Button/Button.tsx";
 
-type Props = {};
-export const Basket = (props: Props) => {
-  const {} = props;
-
+export const Basket = () => {
   return (
     <div className={styles.basketContainer}>
       <h3 className={styles.basketTitle}>Корзина</h3>
