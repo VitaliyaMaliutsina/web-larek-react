@@ -3,23 +3,15 @@ import { Card } from "../Card/Card.tsx";
 import { useSelector } from "../../services/store.ts";
 
 export const Gallery = () => {
-  const cards = useSelector((state) => state.cards.cards);
+  const ids = useSelector((state) => state.products.ids);
+
+  console.log("open this:", open);
 
   return (
     <>
       <section className={styles.container}>
-        {cards.map((card) => {
-          return (
-            <Card
-              key={card.id}
-              title={card.title}
-              price={card.price}
-              category={card.category}
-              image={card.image}
-              id={card.id}
-              description={card.description}
-            />
-          );
+        {ids.map((id) => {
+          return <Card id={id} key={id} />;
         })}
       </section>
     </>

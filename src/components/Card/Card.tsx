@@ -1,38 +1,32 @@
 import styles from "./card.module.scss";
 import { Badge } from "../Badge/Badge.tsx";
 import { categorySkills, type TBadgeVariant } from "../../types/types.ts";
-import { useState } from "react";
-import { CardModal } from "../CardModal/CardModal.tsx";
-import { Modal } from "../Modal/Modal.tsx";
+import { useDispatch, useSelector } from "../../services/store.ts";
+import { openSelectedCard } from "../../services/slices/modalSlice.ts";
 
 type TCardProps = {
-  title: string;
-  price: number | null;
-  category: string;
-  image: string;
   id: string;
-  description: string;
 };
 
 export const Card = (props: TCardProps) => {
-  const { title, price, category, image, id, description } = props;
+  const { id } = props;
+  const product = useSelector((state) => state.products.products[id]);
+  const dispatch = useDispatch();
 
-  const [isOpen, setIsOpen] = useState(false);
+  const variant: TBadgeVariant = categorySkills[product.category];
 
-  const variant: TBadgeVariant = categorySkills[category];
+  const handleOpenCard = () => {
+    dispatch(openSelectedCard(id));
+  };
 
-  return isOpen ? (
-    <Modal isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
-      <CardModal title={title} price={price} category={category} image={image} id={id} description={description} />
-    </Modal>
-  ) : (
-    <article className={styles.card} onClick={() => setIsOpen(!isOpen)}>
-      <Badge variant={variant}>{category}</Badge>
-      <h2 className={styles.cardTitle}>{title}</h2>
+  return (
+    <article className={styles.card} onClick={handleOpenCard}>
+      <Badge variant={variant}>{product.category}</Badge>
+      <h2 className={styles.cardTitle}>{product.title}</h2>
 
-      <img src={image} alt={description} className={styles.cardImg} />
+      <img src={product.image} alt={product.description} className={styles.cardImg} />
 
-      <span className={styles.cardPrice}>{price === null ? "Бесценно" : `${price} синапсов`}</span>
+      <span className={styles.cardPrice}>{product.price === null ? "Бесценно" : `${product.price} синапсов`}</span>
     </article>
   );
 };

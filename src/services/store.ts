@@ -1,8 +1,9 @@
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
-import { cardsSlice } from "./slices/cardSlice.ts";
+import { productSlice } from "./slices/productSlice.ts";
 import { type TypedUseSelectorHook, useDispatch as dispatchHook, useSelector as selectorHook } from "react-redux";
+import { modalSlice } from "./slices/modalSlice.ts";
 
-const rootReducer = combineSlices(cardsSlice);
+const rootReducer = combineSlices(productSlice, modalSlice);
 
 export const store = configureStore({ reducer: rootReducer });
 
