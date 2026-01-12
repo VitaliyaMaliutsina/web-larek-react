@@ -10,6 +10,7 @@ type TCardProps = {
 
 export const Card = (props: TCardProps) => {
   const { id } = props;
+
   const product = useSelector((state) => state.products.products[id]);
   const dispatch = useDispatch();
 

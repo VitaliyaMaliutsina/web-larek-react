@@ -2,8 +2,9 @@ import { combineSlices, configureStore } from "@reduxjs/toolkit";
 import { productSlice } from "./slices/productSlice.ts";
 import { type TypedUseSelectorHook, useDispatch as dispatchHook, useSelector as selectorHook } from "react-redux";
 import { modalSlice } from "./slices/modalSlice.ts";
+import { basketSlice } from "./slices/basketSlice.ts";
 
-const rootReducer = combineSlices(productSlice, modalSlice);
+const rootReducer = combineSlices(productSlice, modalSlice, basketSlice);
 
 export const store = configureStore({ reducer: rootReducer });
 
