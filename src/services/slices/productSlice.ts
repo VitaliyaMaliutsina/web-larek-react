@@ -24,6 +24,7 @@ export const productSlice = createSlice({
 
       action.payload.forEach((product) => {
         state.products[product.id] = product;
+
         state.ids.push(product.id);
       });
     });

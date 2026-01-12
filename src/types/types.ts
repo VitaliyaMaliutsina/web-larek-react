@@ -5,6 +5,13 @@ export type TProduct = {
   title: string;
   category: string;
   price: number | null;
+  index: number;
+};
+
+export type TProductBasket = {
+  id: string;
+  price: number | null;
+  title: string;
 };
 
 export type TProductsData = {

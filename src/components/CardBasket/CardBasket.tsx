@@ -1,6 +1,6 @@
 import styles from "./cardBasket.module.scss";
 import { Button } from "../Button/Button.tsx";
-import type { TProduct } from "../../types/types.ts";
+import type { TProduct, TProductBasket } from "../../types/types.ts";
 import { useDispatch, useSelector } from "../../services/store.ts";
 import { deleteItem } from "../../services/slices/basketSlice.ts";
 
@@ -13,6 +13,9 @@ export const CardBasket = (props: TProps) => {
   const dispatch = useDispatch();
   const products: TProduct = useSelector((state) => state.products.products[id]);
 
+  const index = useSelector((state) => state.basket.index);
+  console.log(index);
+
   const handleDeleteProduct = () => {
     dispatch(deleteItem(id));
   };
@@ -20,10 +23,12 @@ export const CardBasket = (props: TProps) => {
   return (
     <>
       <article className={styles.cardBasket}>
-        <span className={styles.cardIndex}>1</span>
-        <h2 className={styles.cardTitle}>{products.title}</h2> {/*сделать чтоб при ховере писалось полное назвние*/}
-        <span className={styles.cardPrice}>{products.price} синапсов</span>
-        <Button className={styles.deleteButton} onClick={handleDeleteProduct}></Button>
+        <span className={styles.cardIndex}>{index}</span>
+        <h2 className={styles.cardTitle}>{products.title}</h2>
+        <span className={styles.cardPrice}>{products.price === null ? "бесценно" : `${products.price} синапсов`}</span>
+        <Button className={styles.deleteButton} onClick={handleDeleteProduct}>
+          <span className="visuallyHidden">Удалить товар из корзины</span>
+        </Button>
       </article>
     </>
   );
