@@ -3,9 +3,12 @@ import { useState } from "react";
 import { Modal } from "../Modal/Modal.tsx";
 import { Button } from "../Button/Button.tsx";
 import { Basket } from "../Basket/Basket.tsx";
+import { useSelector } from "../../services/store.ts";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const count = useSelector((state) => state.basket.items);
 
   return (
     <>
@@ -15,9 +18,9 @@ export const Header = () => {
             <img src="./logo.svg" alt="" className={styles.logo} />
           </a>
 
-          <button className={styles.basket} onClick={() => setIsOpen(!isOpen)}>
-            <span className={styles.basketCount}>0</span>
-          </button>
+          <Button className={styles.basket} onClick={() => setIsOpen(!isOpen)}>
+            <span className={styles.basketCount}>{count.length}</span>
+          </Button>
         </div>
       </header>
 

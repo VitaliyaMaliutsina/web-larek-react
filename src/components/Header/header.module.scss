@@ -31,12 +31,14 @@
 
   .basketCount {
     position: absolute;
-    width: 17px;
-    height: 17px;
+
+    width: 21px;
+    height: 21px;
     bottom: 37px;
     left: 35px;
     background-color: $category1;
     border-radius: 50%;
+    padding: 1.5px;
   }
 }
 

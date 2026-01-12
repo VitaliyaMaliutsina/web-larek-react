@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import clsx from "clsx";
 
 type TButtonProps = React.ComponentProps<"button"> & {
-  children: ReactNode;
+  children?: ReactNode;
 };
 export const Button = (props: TButtonProps) => {
   const { children, onClick, type = "button", className } = props;
