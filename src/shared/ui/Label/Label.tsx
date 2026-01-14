@@ -1,6 +1,10 @@
-type Props = {};
-export const Label = (props: Props) => {
-  const {} = props;
+import type { ReactNode } from "react";
 
-  return <label></label>;
+type TProps = React.ComponentProps<"label"> & {
+  children: ReactNode;
+};
+export const Label = (props: TProps) => {
+  const { children, htmlFor } = props;
+
+  return <label htmlFor={htmlFor}>{children}</label>;
 };

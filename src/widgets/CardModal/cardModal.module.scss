@@ -1,11 +1,10 @@
 .card {
-  width: 710px;
+  width: 690px;
   background-color: var( --primary-color);
   display: flex;
   flex-direction: row;
   align-items: center;
-  column-gap: 24px;
-  padding: 40px 45px;
+  column-gap: 60px;
   border-radius: 15px;
 
 }
@@ -21,7 +20,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  row-gap: 10px;
+  row-gap: 15px;
 
 
   .cardTitle {

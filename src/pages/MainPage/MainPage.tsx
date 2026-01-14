@@ -5,6 +5,7 @@ import { Modal } from "../../widgets/Modal/Modal.tsx";
 import { useDispatch, useSelector } from "../../app/store/store.ts";
 import { CardModal } from "../../widgets/CardModal/CardModal.tsx";
 import { closeSelectedCard } from "../../entities/modal/model/modalSlice.ts";
+import { CardBasket } from "../../widgets/CardBasket/CardBasket.tsx";
 
 export const MainPage = () => {
   const open = useSelector((state) => state.modal.selectedCard);

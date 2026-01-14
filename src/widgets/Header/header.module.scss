@@ -15,16 +15,11 @@
   flex-wrap: wrap;
 }
 
-.logo {
-  width: 170px;
-  height: 90px;
-}
-
 .basket {
   position: relative;
   width: 48px;
   height: 48px;
-  background-image: url("./shopping_cart.svg");
+  background-image: url("../../shared/assets/images/icon/shopping_cart.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

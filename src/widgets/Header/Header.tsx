@@ -4,6 +4,7 @@ import { Modal } from "../Modal/Modal.tsx";
 import { Button } from "../../shared/ui/Button/Button.tsx";
 import { Basket } from "../Basket/Basket.tsx";
 import { useSelector } from "../../app/store/store.ts";
+import { Logo } from "../../shared/ui/Logo/Logo.tsx";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,9 +15,7 @@ export const Header = () => {
     <>
       <header className={styles.header}>
         <div className={styles.wrapperContent}>
-          <a href="/public">
-            <img src="./logo.svg" alt="" className={styles.logo} />
-          </a>
+          <Logo />
 
           <Button className={styles.basket} onClick={() => setIsOpen(!isOpen)}>
             <span className={styles.basketCount}>{count.length}</span>

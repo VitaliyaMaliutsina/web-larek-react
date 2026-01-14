@@ -2,12 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 type TInitialState = {
   items: string[];
-  index: number;
 };
 
 const initialState: TInitialState = {
   items: [],
-  index: 0,
 };
 
 export const basketSlice = createSlice({
@@ -16,7 +14,6 @@ export const basketSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
       state.items.push(action.payload);
-      state.index = state.index + 1;
     },
 
     deleteItem(state, action) {

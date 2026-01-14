@@ -23,20 +23,6 @@ export const Modal = (props: TModalProps) => {
     }
   }, [isOpen]);
 
-  /*useEffect(() => {
-    const handleClick = (evt: PointerEvent) => {
-      if (evt.target === modalRef.current) {
-        modalRef.current?.close();
-        console.log("click");
-      }
-    };
-    window.addEventListener("click", handleClick);
-
-    return () => {
-      window.removeEventListener("click", handleClick);
-    };
-  }, []);*/
-
   const handleClickOut = (e: React.MouseEvent<HTMLDialogElement>) => {
     if (e.target === modalRef.current) {
       modalRef.current?.close();
@@ -48,7 +34,7 @@ export const Modal = (props: TModalProps) => {
   return createPortal(
     <dialog ref={modalRef} onClose={onClose} className={styles.modal} onClick={handleClickOut}>
       <button onClick={handleClickClose} className={styles.button}></button>
-      {children}
+      {children} {/*добавить кнопку и цену чтоб не дублировать*/}
     </dialog>,
     container,
   );

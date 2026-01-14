@@ -1,8 +1,9 @@
 import styles from "./input.module.scss";
+import * as React from "react";
 
-type Props = {};
-export const Input = (props: Props) => {
-  const {} = props;
+type TProps = React.ComponentProps<"input"> & {};
+export const Input = (props: TProps) => {
+  const { type = "text", placeholder, id } = props;
 
-  return <input></input>;
+  return <input id={id} type={type} className={styles.input} placeholder={placeholder}></input>;
 };

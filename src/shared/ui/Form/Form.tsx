@@ -1,13 +1,11 @@
 import styles from "./form.module.scss";
-import { Input } from "../Input/Input.tsx";
+import type { ReactNode } from "react";
 
-type Props = {};
-export const Form = (props: Props) => {
-  const {} = props;
+type TProps = React.ComponentProps<"form"> & {
+  children: ReactNode;
+};
+export const Form = (props: TProps) => {
+  const { children, className } = props;
 
-  return (
-    <form>
-      <Input />
-    </form>
-  );
+  return <form className={className}>{children}</form>;
 };
