@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { categorySkills } from "../../shared/types/types.ts";
 import { Button } from "../../shared/ui/Button/Button.tsx";
 import { useDispatch } from "../../app/store/store.ts";
-import { addItem } from "../../entities/basket/model/basketSlice.ts";
+import { addItem, setPrice } from "../../entities/basket/model/basketSlice.ts";
 
 type TCardModalProps = {
   title: string;
@@ -21,6 +21,7 @@ export const CardModal = (props: TCardModalProps) => {
 
   const handleBuyProduct = () => {
     dispatch(addItem(id));
+    dispatch(setPrice(price));
   };
 
   return (

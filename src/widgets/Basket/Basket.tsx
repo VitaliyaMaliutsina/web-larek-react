@@ -6,6 +6,11 @@ import clsx from "clsx";
 
 export const Basket = () => {
   const items = useSelector((state) => state.basket.items);
+  const products = useSelector((state) => state.products.products);
+
+  const price = items.reduce((acc, val) => {
+    return acc + products[val]?.price;
+  }, 0);
 
   return (
     <div className={styles.basketContainer}>
@@ -25,7 +30,7 @@ export const Basket = () => {
         <Button className={styles.basketButton} type={"submit"} onClick={() => console.log("buy")}>
           оформить
         </Button>
-        <span className={styles.basketPrice}>0 синапсов</span>
+        <span className={styles.basketPrice}>{price} синапсов</span>
       </div>
     </div>
   );
