@@ -1,27 +1,33 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+type ModalType = "basket" | "card" | "form";
+
 type TInitialState = {
-  selectedCard: string;
+  payload: string;
   isOpen: boolean;
+  type: ModalType | null;
 };
 
 const initialState: TInitialState = {
-  selectedCard: "",
+  payload: "",
   isOpen: false,
+  type: null,
 };
 
 export const modalSlice = createSlice({
   name: "modal",
   initialState,
   reducers: {
-    openSelectedCard(state, action) {
-      state.selectedCard = action.payload;
+    openModal(state, action) {
       state.isOpen = true;
+      state.type = action.payload.type;
+      state.payload = action.payload.payload;
     },
-    closeSelectedCard(state) {
+    closeModal(state) {
       state.isOpen = false;
+      state.type = null;
     },
   },
 });
 
-export const { openSelectedCard, closeSelectedCard } = modalSlice.actions;
+export const { openModal, closeModal } = modalSlice.actions;

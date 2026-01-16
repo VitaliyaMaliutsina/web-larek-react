@@ -3,7 +3,10 @@ import { Form } from "../../shared/ui/Form/Form.tsx";
 import { Input } from "../../shared/ui/Input/Input.tsx";
 import { Button } from "../../shared/ui/Button/Button.tsx";
 import { Label } from "../../shared/ui/Label/Label.tsx";
+import { useDispatch } from "../../app/store/store.ts";
 export const FormOrder = () => {
+  /* const dispatch = useDispatch();*/
+
   return (
     <Form className={styles.form}>
       <div className={styles.wrapper}>

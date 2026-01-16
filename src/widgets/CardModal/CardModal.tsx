@@ -46,7 +46,7 @@ export const CardModal = (props: TCardModalProps) => {
               {buttonState}
             </Button>
           </div>
-          <span className={styles.cardPrice}>{price} синапсов</span>
+          <span className={styles.cardPrice}>{price === null ? "Бесценно" : `${price} синапсов`} </span>
         </div>
       </div>
     </article>
