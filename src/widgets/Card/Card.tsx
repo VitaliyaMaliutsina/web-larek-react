@@ -2,7 +2,7 @@ import styles from "./card.module.scss";
 import { Badge } from "../../shared/ui/Badge/Badge.tsx";
 import { categorySkills, type TBadgeVariant } from "../../shared/types/types.ts";
 import { useDispatch, useSelector } from "../../app/store/store.ts";
-import { openSelectedCard } from "../../entities/modal/model/modalSlice.ts";
+import { openModal } from "../../entities/modal/model/modalSlice.ts";
 
 type TCardProps = {
   id: string;
@@ -17,7 +17,7 @@ export const Card = (props: TCardProps) => {
   const variant: TBadgeVariant = categorySkills[product.category];
 
   const handleOpenCard = () => {
-    dispatch(openSelectedCard(id));
+    dispatch(openModal({ type: "card", payload: id }));
   };
 
   return (

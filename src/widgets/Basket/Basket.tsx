@@ -1,10 +1,11 @@
 import styles from "./basket.module.scss";
 import { Button } from "../../shared/ui/Button/Button.tsx";
-import { useSelector } from "../../app/store/store.ts";
+import { useDispatch, useSelector } from "../../app/store/store.ts";
 import { CardBasket } from "../CardBasket/CardBasket.tsx";
 import clsx from "clsx";
 
 export const Basket = () => {
+  const dispatch = useDispatch();
   const items = useSelector((state) => state.basket.items);
   const products = useSelector((state) => state.products.products);
 
@@ -27,7 +28,7 @@ export const Basket = () => {
       )}
 
       <div className={styles.buttonContainer}>
-        <Button className={styles.basketButton} type={"submit"} onClick={() => console.log("buy")}>
+        <Button className={styles.basketButton} type={"submit"}>
           оформить
         </Button>
         <span className={styles.basketPrice}>{price} синапсов</span>
