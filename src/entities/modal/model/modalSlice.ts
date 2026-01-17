@@ -1,17 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-type ModalType = "basket" | "card" | "stepOrder" | "stepContacts";
+type TModalView = "basket" | "card" | "checkout";
+
+type TModalStep = "order" | "contacts" | "success" | "basket";
 
 type TInitialState = {
   payload: string;
   isOpen: boolean;
-  type: ModalType | null;
+  view: TModalView | null;
+  step: TModalStep | null;
 };
 
 const initialState: TInitialState = {
   payload: "",
   isOpen: false,
-  type: null,
+  view: null,
+  step: null,
 };
 
 export const modalSlice = createSlice({
@@ -20,14 +24,23 @@ export const modalSlice = createSlice({
   reducers: {
     openModal: (state, action) => {
       state.isOpen = true;
-      state.type = action.payload.type;
+      state.view = action.payload.view;
       state.payload = action.payload.payload;
+      state.step = action.payload.step ?? null;
     },
+
+    setCheckoutStep: (state, action) => {
+      state.step = action.payload.step;
+      if (action.payload.view) {
+        state.view = action.payload.view;
+      }
+    },
+
     closeModal: (state) => {
       state.isOpen = false;
-      state.type = null;
+      state.step = null;
     },
   },
 });
 
-export const { openModal, closeModal } = modalSlice.actions;
+export const { openModal, closeModal, setCheckoutStep } = modalSlice.actions;

@@ -4,9 +4,10 @@ import { Input } from "../../shared/ui/Input/Input.tsx";
 import { Button } from "../../shared/ui/Button/Button.tsx";
 import { Label } from "../../shared/ui/Label/Label.tsx";
 import { useDispatch, useSelector } from "../../app/store/store.ts";
-import { openModal } from "../../entities/modal/model/modalSlice.ts";
+import { setCheckoutStep } from "../../entities/modal/model/modalSlice.ts";
 import { handleAddress, handlePaymentMethod } from "../../entities/order/model/orderSlice.ts";
 import { type ChangeEvent, useState } from "react";
+
 export const FormOrder = () => {
   const dispatch = useDispatch();
 
@@ -19,7 +20,7 @@ export const FormOrder = () => {
 
   const goToContactsStep = () => {
     dispatch(handleAddress(inputValue));
-    dispatch(openModal({ type: "stepContacts" }));
+    dispatch(setCheckoutStep({ step: "contacts" }));
   };
 
   return (
@@ -50,7 +51,7 @@ export const FormOrder = () => {
       <div className={styles.buttonContainer}>
         <Button onClick={goToContactsStep}>Далее</Button>
         <span>Необходимо указать адрес</span>
-        <Button onClick={() => dispatch(openModal({ type: "basket" }))}>Назад</Button>
+        <Button onClick={() => dispatch(setCheckoutStep({ view: "basket" }))}>Назад</Button>
       </div>
     </Form>
   );

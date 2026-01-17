@@ -17,7 +17,7 @@ export const Card = (props: TCardProps) => {
   const variant: TBadgeVariant = categorySkills[product.category];
 
   const handleOpenCard = () => {
-    dispatch(openModal({ type: "card", payload: id }));
+    dispatch(openModal({ view: "card", payload: id }));
   };
 
   return (

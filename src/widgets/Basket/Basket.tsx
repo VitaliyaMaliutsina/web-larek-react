@@ -3,7 +3,7 @@ import { Button } from "../../shared/ui/Button/Button.tsx";
 import { useDispatch, useSelector } from "../../app/store/store.ts";
 import { CardBasket } from "../CardBasket/CardBasket.tsx";
 import clsx from "clsx";
-import { openModal } from "../../entities/modal/model/modalSlice.ts";
+import { setCheckoutStep } from "../../entities/modal/model/modalSlice.ts";
 
 export const Basket = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,10 @@ export const Basket = () => {
   const products = useSelector((state) => state.products.products);
 
   const price = items.reduce((acc, val) => {
-    return acc + products[val]?.price;
+    if (products[val].price === null) {
+      return 0;
+    }
+    return acc + products[val].price;
   }, 0);
 
   return (
@@ -32,7 +35,7 @@ export const Basket = () => {
         <Button
           className={styles.basketButton}
           type={"submit"}
-          onClick={() => dispatch(openModal({ type: "stepOrder" }))}
+          onClick={() => dispatch(setCheckoutStep({ view: "checkout", step: "order" }))}
           disabled={!items.length}
         >
           оформить
