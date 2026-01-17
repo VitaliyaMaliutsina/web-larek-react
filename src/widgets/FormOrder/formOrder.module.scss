@@ -37,7 +37,7 @@
 
 .buttonContainer {
   display: grid;
-  grid-template-columns: 135px 1fr;
+  grid-template-columns: 135px 1fr 135px;
   align-items: center;
   column-gap: 30px;
 
@@ -48,4 +48,10 @@
   height: 44px;
   border-radius: var(--border-radius-primary);
   background-color: var( --main-btn-color);
+}
+
+.activeButton {
+  border: 3px solid plum;
+  border-radius: var(--border-radius-secondary);
+  background-color: #3f5c83;
 }

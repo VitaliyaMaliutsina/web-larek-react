@@ -8,6 +8,20 @@ export type TProduct = {
   index: number;
 };
 
+type TPayment = "cash" | "online" | null;
+
+export type TUserData = {
+  payment: TPayment;
+  email: string;
+  phone: string;
+  address: string;
+};
+
+export type TOrder = TUserData & {
+  total: string;
+  items: string[];
+};
+
 export type TProductBasket = {
   id: string;
   price: number | null;

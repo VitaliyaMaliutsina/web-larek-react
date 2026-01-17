@@ -3,11 +3,13 @@ import { Form } from "../../shared/ui/Form/Form.tsx";
 import { Input } from "../../shared/ui/Input/Input.tsx";
 import { Label } from "../../shared/ui/Label/Label.tsx";
 import { Button } from "../../shared/ui/Button/Button.tsx";
+import { openModal } from "../../entities/modal/model/modalSlice.ts";
+import { useDispatch } from "../../app/store/store.ts";
 
 type Props = {};
 export const FormContacts = (props: Props) => {
   const {} = props;
-
+  const dispatch = useDispatch();
   return (
     <Form className={styles.form}>
       <div className={styles.wrapper}>
@@ -24,6 +26,7 @@ export const FormContacts = (props: Props) => {
       <div className={styles.buttonContainer}>
         <Button>Оформить</Button>
         <span>Проверьте данные!</span>
+        <Button onClick={() => dispatch(openModal({ type: "stepOrder" }))}>Назад</Button>
       </div>
     </Form>
   );

@@ -33,6 +33,7 @@ export const Basket = () => {
           className={styles.basketButton}
           type={"submit"}
           onClick={() => dispatch(openModal({ type: "stepOrder" }))}
+          disabled={!items.length}
         >
           оформить
         </Button>
