@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { TOrder } from "../../../shared/types/types.ts";
+import { createUserOrder } from "./createUserOrder.ts";
 
 const initialState: TOrder = {
   payment: null,
   email: "",
   phone: "",
   address: "",
-  total: "",
+  total: 0,
   items: [],
 };
 
@@ -20,13 +21,15 @@ export const orderSlice = createSlice({
     setAddress: (state, action) => {
       state.address = action.payload.address;
     },
-    setEmail: (state, action) => {
-      state.email = action.payload.email;
+    setTotal: (state, action) => {
+      state.total = action.payload.total;
     },
-    setPhone: (state, action) => {
-      state.phone = action.payload.phone;
-    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(createUserOrder.pending, () => {});
+    builder.addCase(createUserOrder.fulfilled, () => {});
+    builder.addCase(createUserOrder.rejected, () => {});
   },
 });
 
-export const { setPaymentMethod, setAddress, setEmail, setPhone } = orderSlice.actions;
+export const { setPaymentMethod, setAddress, setTotal } = orderSlice.actions;

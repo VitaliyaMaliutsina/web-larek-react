@@ -18,7 +18,7 @@ export type TUserData = {
 };
 
 export type TOrder = TUserData & {
-  total: string;
+  total: number;
   items: string[];
 };
 

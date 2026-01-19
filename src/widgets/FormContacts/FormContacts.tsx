@@ -6,15 +6,27 @@ import { Button } from "../../shared/ui/Button/Button.tsx";
 import { setCheckoutStep } from "../../entities/modal/model/modalSlice.ts";
 import { useDispatch, useSelector } from "../../app/store/store.ts";
 import { useState } from "react";
-import { setEmail, setPhone } from "../../entities/order/model/orderSlice.ts";
+import { createUserOrder } from "../../entities/order/model/createUserOrder.ts";
 
 export const FormContacts = () => {
   const dispatch = useDispatch();
+  const payment = useSelector((state) => state.order.payment);
+  const address = useSelector((state) => state.order.address);
+  const items = useSelector((state) => state.basket.items);
+  const total = useSelector((state) => state.order.total);
   const [emailValue, setEmailValue] = useState("");
   const [phoneValue, setPhoneValue] = useState("");
-  const handleOrder = () => {
-    dispatch(setEmail({ email: emailValue }));
-    dispatch(setPhone({ phone: phoneValue }));
+  const handleCreateOrder = () => {
+    const fullOrder = {
+      payment: payment,
+      address: address,
+      phone: phoneValue,
+      email: emailValue,
+      total: total,
+      items: items,
+    };
+
+    dispatch(createUserOrder(fullOrder));
   };
 
   return (
@@ -47,7 +59,7 @@ export const FormContacts = () => {
       </div>
 
       <div className={styles.buttonContainer}>
-        <Button onClick={handleOrder}>Оформить</Button>
+        <Button onClick={handleCreateOrder}>Оформить</Button>
         <span>Проверьте данные!</span>
       </div>
     </Form>
