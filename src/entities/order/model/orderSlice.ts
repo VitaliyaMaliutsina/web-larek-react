@@ -1,14 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { TOrder } from "../../../shared/types/types.ts";
+import type { TPayment, TSuccessOrder } from "../../../shared/types/types.ts";
 import { createUserOrder } from "./createUserOrder.ts";
 
-const initialState: TOrder = {
+type TInitialState = {
+  payment: TPayment;
+  address: string;
+  total: number;
+  isSuccess: boolean;
+  isPending: boolean;
+  isError: boolean;
+};
+
+const initialState: TInitialState = {
   payment: null,
-  email: "",
-  phone: "",
   address: "",
   total: 0,
-  items: [],
+  isSuccess: false,
+  isPending: false,
+  isError: false,
 };
 
 export const orderSlice = createSlice({
@@ -24,11 +33,24 @@ export const orderSlice = createSlice({
     setTotal: (state, action) => {
       state.total = action.payload.total;
     },
+    clearOrder: (state, action) => {},
   },
   extraReducers: (builder) => {
-    builder.addCase(createUserOrder.pending, () => {});
-    builder.addCase(createUserOrder.fulfilled, () => {});
-    builder.addCase(createUserOrder.rejected, () => {});
+    builder.addCase(createUserOrder.pending, (state, action) => {
+      state.isSuccess = false;
+      state.isPending = true;
+      state.isError = false;
+    });
+    builder.addCase(createUserOrder.fulfilled, (state, action) => {
+      state.isSuccess = true;
+      state.isPending = false;
+      state.isError = false;
+    });
+    builder.addCase(createUserOrder.rejected, (state, action) => {
+      state.isSuccess = false;
+      state.isPending = false;
+      state.isError = true;
+    });
   },
 });
 

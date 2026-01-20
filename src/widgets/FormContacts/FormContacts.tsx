@@ -10,23 +10,24 @@ import { createUserOrder } from "../../entities/order/model/createUserOrder.ts";
 
 export const FormContacts = () => {
   const dispatch = useDispatch();
-  const payment = useSelector((state) => state.order.payment);
-  const address = useSelector((state) => state.order.address);
+
+  const order = useSelector((state) => state.order);
   const items = useSelector((state) => state.basket.items);
-  const total = useSelector((state) => state.order.total);
+
   const [emailValue, setEmailValue] = useState("");
   const [phoneValue, setPhoneValue] = useState("");
+
   const handleCreateOrder = () => {
     const fullOrder = {
-      payment: payment,
-      address: address,
+      payment: order.payment,
+      address: order.address,
+      total: order.total,
       phone: phoneValue,
       email: emailValue,
-      total: total,
       items: items,
     };
-
     dispatch(createUserOrder(fullOrder));
+    dispatch(setCheckoutStep({ step: "success" }));
   };
 
   return (

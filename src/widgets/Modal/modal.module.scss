@@ -8,9 +8,8 @@ dialog[open] {
   display: flex;
   max-width: 760px;
   max-height: 400px;
-  width: 100%;
   border-radius: 30px;
-  padding: 30px 30px;;
+  padding: 30px 30px;
   background-color: var( --primary-color);
   overflow: hidden;
 
@@ -19,8 +18,17 @@ dialog[open] {
   }
 }
 
+/*.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}*/
+
 .button {
-  width: 46px;
+  width: 43px;
   height: 43px;
   background-image: url("../../shared/assets/images/icon/close.svg");
   background-size: cover;
