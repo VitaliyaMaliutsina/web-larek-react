@@ -1,5 +1,5 @@
 import { API_URL, CDN_URL } from "../constants/constants.ts";
-import type { TProduct, TProductsData, TOrder } from "../types/types.ts";
+import type { TProduct, TProductsData, TUserData } from "../types/types.ts";
 
 type TOrderPromise = {
   id: string;
@@ -28,7 +28,7 @@ export const getCards = async (): Promise<TProduct[]> => {
   return products;
 };
 
-export const createOrder = async (order: TOrder) => {
+export const createOrder = async (order: TUserData) => {
   const response = await fetch(`${API_URL}/order`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
