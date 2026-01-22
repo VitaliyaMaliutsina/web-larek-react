@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { TPayment, TSuccessOrder } from "../../../shared/types/types.ts";
+import type { TPayment } from "../../../shared/types/types.ts";
 import { createUserOrder } from "./createUserOrder.ts";
 
 type TInitialState = {
@@ -33,10 +33,9 @@ export const orderSlice = createSlice({
     setTotal: (state, action) => {
       state.total = action.payload.total;
     },
-    clearOrder: (state, action) => {},
   },
   extraReducers: (builder) => {
-    builder.addCase(createUserOrder.pending, (state, action) => {
+    builder.addCase(createUserOrder.pending, (state) => {
       state.isSuccess = false;
       state.isPending = true;
       state.isError = false;
@@ -45,8 +44,9 @@ export const orderSlice = createSlice({
       state.isSuccess = true;
       state.isPending = false;
       state.isError = false;
+      state.total = action.payload.total;
     });
-    builder.addCase(createUserOrder.rejected, (state, action) => {
+    builder.addCase(createUserOrder.rejected, (state) => {
       state.isSuccess = false;
       state.isPending = false;
       state.isError = true;
