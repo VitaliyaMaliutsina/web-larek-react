@@ -3,7 +3,7 @@ import * as React from "react";
 
 type TProps = React.ComponentProps<"input"> & {};
 export const Input = (props: TProps) => {
-  const { type = "text", placeholder, id, onChange, onBlur, value, name, required } = props;
+  const { type = "text", placeholder, id, onChange, onClick, value, name, required } = props;
 
   return (
     <input
@@ -13,7 +13,7 @@ export const Input = (props: TProps) => {
       className={styles.input}
       placeholder={placeholder}
       onChange={onChange}
-      onBlur={onBlur}
+      onClick={onClick}
       value={value}
       required={required}
     ></input>
