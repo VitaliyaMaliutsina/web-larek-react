@@ -7,6 +7,8 @@ import { setCheckoutStep } from "../../entities/modal/model/modalSlice.ts";
 import { useDispatch, useSelector } from "../../app/store/store.ts";
 import { useState } from "react";
 import { createUserOrder } from "../../entities/order/model/createUserOrder.ts";
+import { contactsSchema } from "../../shared/validation/order.schema.ts";
+import { treeifyError } from "zod";
 
 export const FormContacts = () => {
   const dispatch = useDispatch();
@@ -16,7 +18,10 @@ export const FormContacts = () => {
 
   const [emailValue, setEmailValue] = useState("");
   const [phoneValue, setPhoneValue] = useState("");
-
+  const [error, setError] = useState<Record<string, string | undefined>>({
+    email: "",
+    phone: "",
+  });
   const handleCreateOrder = () => {
     const fullOrder = {
       payment: order.payment,
@@ -26,8 +31,17 @@ export const FormContacts = () => {
       email: emailValue,
       items: items,
     };
-    dispatch(createUserOrder(fullOrder));
-    dispatch(setCheckoutStep({ step: "success" }));
+    const result = contactsSchema.safeParse({ email: emailValue, phone: phoneValue });
+    if (result.success) {
+      dispatch(createUserOrder(fullOrder));
+      dispatch(setCheckoutStep({ step: "success" }));
+    } else {
+      const errors = treeifyError(result.error);
+      setError({
+        email: errors.properties?.email?.errors[0],
+        phone: errors.properties?.phone?.errors[0],
+      });
+    }
   };
 
   return (
@@ -61,7 +75,7 @@ export const FormContacts = () => {
 
       <div className={styles.buttonContainer}>
         <Button onClick={handleCreateOrder}>Оформить</Button>
-        <span>Проверьте данные!</span>
+        <span>{error.email || error.phone}</span>
       </div>
     </Form>
   );
