@@ -14,7 +14,7 @@ export const Header = () => {
         <div className={styles.wrapperContent}>
           <Logo />
 
-          <Button className={styles.basket} onClick={() => dispatch(openModal({ view: "basket" }))}>
+          <Button variant={"basket"} onClick={() => dispatch(openModal({ view: "basket" }))}>
             <span className={styles.basketCount}>{count.length}</span>
           </Button>
         </div>

@@ -15,18 +15,8 @@
   flex-wrap: wrap;
 }
 
-.basket {
-  position: relative;
-  width: 48px;
-  height: 48px;
-  background-image: url("../../shared/assets/images/icon/shopping_cart.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  .basketCount {
+.basketCount {
     position: absolute;
-
     width: 21px;
     height: 21px;
     bottom: 37px;
@@ -34,8 +24,8 @@
     background-color: $category1;
     border-radius: 50%;
     padding: 1.5px;
-  }
 }
+
 
 
 

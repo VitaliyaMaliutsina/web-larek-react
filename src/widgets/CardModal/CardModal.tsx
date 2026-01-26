@@ -42,7 +42,11 @@ export const CardModal = (props: TCardModalProps) => {
         <p className={clsx(styles.cardDescription, styles.scrollbar)}>{description}</p>
         <div className={styles.buttonPriceWrapper}>
           <div className={styles.buttonContainer}>
-            <Button className={styles.button} onClick={handleBuyProduct} disabled={price === null}>
+            <Button
+              onClick={handleBuyProduct}
+              variant={price === null ? "disabled" : "primary"}
+              disabled={price === null}
+            >
               {buttonState}
             </Button>
           </div>

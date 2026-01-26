@@ -38,7 +38,7 @@ export const Basket = () => {
       )}
 
       <div className={styles.buttonContainer}>
-        <Button className={styles.basketButton} type={"submit"} onClick={checkoutStep} disabled={!items.length}>
+        <Button type={"submit"} onClick={checkoutStep} disabled={!items.length}>
           оформить
         </Button>
         <span className={styles.basketPrice}>{price} синапсов</span>

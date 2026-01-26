@@ -44,7 +44,7 @@ export const FormOrder = () => {
 
   return (
     <Form>
-      <Button className={styles.buttonBack} onClick={() => dispatch(setCheckoutStep({ view: "basket" }))}>
+      <Button variant={"back"} onClick={() => dispatch(setCheckoutStep({ view: "basket" }))}>
         <span className="visuallyHidden">Назад</span>
       </Button>
       <div className={styles.wrapperButton}>

@@ -47,7 +47,7 @@ export const FormContacts = () => {
   return (
     <Form>
       <div className={styles.containerButtonBack}>
-        <Button className={styles.buttonBack} onClick={() => dispatch(setCheckoutStep({ step: "order" }))}>
+        <Button variant={"back"} onClick={() => dispatch(setCheckoutStep({ step: "order" }))}>
           <span className="visuallyHidden">Назад</span>
         </Button>
       </div>
@@ -55,6 +55,7 @@ export const FormContacts = () => {
         <div className={styles.inputContainer}>
           <Label htmlFor={"email"}>Email </Label>
           <Input
+            autoComplete={"email"}
             id={"email"}
             placeholder={"Введите Email"}
             value={emailValue}
@@ -63,9 +64,10 @@ export const FormContacts = () => {
         </div>
 
         <div className={styles.inputContainer}>
-          <Label htmlFor={"tel"}>Телефон</Label>
+          <Label htmlFor={"phone"}>Телефон</Label>
           <Input
-            id={"tel"}
+            autoComplete={"tel"}
+            id={"phone"}
             placeholder={"Введите номер телефона"}
             value={phoneValue}
             onChange={(evt) => setPhoneValue(evt.target.value)}

@@ -6,10 +6,10 @@ type TProps = React.ComponentProps<"form"> & {
   children: ReactNode;
 };
 export const Form = (props: TProps) => {
-  const { children, className, onChange } = props;
+  const { children, className, onChange, autoComplete = "on" } = props;
 
   return (
-    <form className={clsx(className ? className : styles.form)} onChange={onChange}>
+    <form className={clsx(className ? className : styles.form)} onChange={onChange} autoComplete={autoComplete}>
       {children}
     </form>
   );

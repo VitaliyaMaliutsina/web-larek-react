@@ -1,10 +1,11 @@
 .button {
   padding: 10px 20px;
-  border-radius: var(--border-radius-secondary);
-  background-color: var(--main-btn-color);
-
 }
 
+.primary {
+  border-radius: var(--border-radius-secondary);
+  background-color: var(--main-btn-color);
+}
 
 .disabled {
   height: 44px;
@@ -13,5 +14,55 @@
   cursor: not-allowed;
   color: var(--disabled-text);
   background-color: var(--disabled-color);
+}
 
+.buttonBack {
+  width: 43px;
+  height: 43px;
+  background-image: url("../../assets/images/icon/arrow-left.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  fill: var(--main-btn-color);
+  color: #fff;
+}
+
+.delete {
+  background-image: url("../../assets/images/icon/trash.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  fill: var(--main-text-color);
+  width: 26px;
+  height: 30px;
+}
+
+.basket {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  background-image: url("../../assets/images/icon/shopping_cart.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.close {
+    width: 43px;
+    height: 43px;
+    background-image: url("../../assets/images/icon/close.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.back {
+  width: 43px;
+  height: 43px;
+  background-image: url("../../assets/images/icon/testt.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  fill: var(--main-btn-color);
+  color: #fff;
 }

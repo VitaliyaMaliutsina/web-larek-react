@@ -24,7 +24,7 @@ export const CardBasket = (props: TProps) => {
         <span className={styles.cardIndex}>{index + 1}</span>
         <h2 className={styles.cardTitle}>{products.title}</h2>
         <span className={styles.cardPrice}>{products.price === null ? "бесценно" : `${products.price} синапсов`}</span>
-        <Button className={styles.deleteButton} onClick={handleDeleteProduct}>
+        <Button variant={"delete"} onClick={handleDeleteProduct}>
           <span className="visuallyHidden">Удалить товар из корзины</span>
         </Button>
       </article>
