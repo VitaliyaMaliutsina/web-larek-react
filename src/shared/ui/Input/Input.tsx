@@ -3,7 +3,7 @@ import * as React from "react";
 
 type TProps = React.ComponentProps<"input"> & {};
 export const Input = (props: TProps) => {
-  const { type = "text", placeholder, id, onChange, onClick, value, name, required, autoComplete } = props;
+  const { type = "text", placeholder, id, onChange, onClick, value, name, required, autoComplete, checked } = props;
 
   return (
     <input
@@ -17,6 +17,7 @@ export const Input = (props: TProps) => {
       onClick={onClick}
       value={value}
       required={required}
+      checked={checked}
     ></input>
   );
 };
