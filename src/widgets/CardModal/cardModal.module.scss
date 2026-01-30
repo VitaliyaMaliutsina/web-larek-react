@@ -6,6 +6,7 @@
   align-items: center;
   column-gap: 60px;
   border-radius: var(--border-radius-secondary);
+  color: var(--main-text-color);
 }
 
 .cardImg {
@@ -65,6 +66,7 @@
   justify-content: flex-start;
   align-items: center;
   column-gap: 24px;
+  color: #000;
 
   .buttonContainer {
     display: flex;
