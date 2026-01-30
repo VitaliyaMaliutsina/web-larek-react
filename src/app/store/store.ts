@@ -4,8 +4,9 @@ import { type TypedUseSelectorHook, useDispatch as dispatchHook, useSelector as 
 import { modalSlice } from "../../entities/modal/model/modalSlice.ts";
 import { basketSlice } from "../../entities/basket/model/basketSlice.ts";
 import { orderSlice } from "../../entities/order/model/orderSlice.ts";
+import { ThemeSlice } from "../../entities/theme/model/themeSlice.ts";
 
-const rootReducer = combineSlices(productSlice, modalSlice, basketSlice, orderSlice);
+const rootReducer = combineSlices(productSlice, modalSlice, basketSlice, orderSlice, ThemeSlice);
 
 export const store = configureStore({ reducer: rootReducer });
 
