@@ -1,5 +1,6 @@
-import { type ReactNode, useEffect } from "react";
+import { type ReactNode, useLayoutEffect } from "react";
 import { useSelector } from "../store/store.ts";
+import { THEME_STORAGE } from "../../shared/constants/constants.ts";
 
 type Props = {
   children: ReactNode;
@@ -9,12 +10,9 @@ export const ThemeProvider = (props: Props) => {
 
   const theme = useSelector((state) => state.Theme.theme);
 
-  useEffect(() => {
-    if (theme === "dark") {
-      document.body.classList.add("darkLayout");
-    } else {
-      document.body.classList.remove("darkLayout");
-    }
+  useLayoutEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem(THEME_STORAGE, theme);
   }, [theme]);
 
   return <>{children}</>;

@@ -4,17 +4,11 @@ import { THEME_STORAGE } from "../../../shared/constants/constants.ts";
 const getInitialTheme = () => {
   const saved = localStorage.getItem(THEME_STORAGE);
 
-  if (saved === "dark" || saved === "light" || saved === "system") {
+  if (saved === "dark" || saved === "light") {
     return saved;
   }
 
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-};
-
-type TTheme = "dark" | "light" | "system";
-
-type TInitialState = {
-  theme: TTheme;
 };
 
 const initialState = {

@@ -43,8 +43,35 @@ body {
   border: 0;
 }
 
+html[data-theme="dark"] {
 
-@media (prefers-color-scheme: light) {
+
+  --main-bg-color: #0F2137;
+
+  --primary-color: #060C14;
+
+  --main-text-color: #fff ;
+
+  --main-btn-color: #e6d6e8;
+
+  --disabled-color: rgba(159, 159, 159, 0.53);
+
+
+}
+
+html[data-theme="light"] {
+  --main-bg-color: #b8d5ff;
+
+  --primary-color: #95b7e4;
+
+  --main-text-color: #000;
+
+  --main-btn-color: #fff;
+
+  --disabled-color: rgba(199, 199, 199, 0.6);
+}
+
+/*@media (prefers-color-scheme: light) {
   :root {
     --main-bg-color: #b8d5ff;
 
@@ -84,5 +111,5 @@ body {
     --disabled-color: rgba(159, 159, 159, 0.53);
 
   }
-}
+}*/
 
