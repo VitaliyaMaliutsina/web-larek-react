@@ -1,3 +1,4 @@
+import styles from "./themeToggle.module.scss";
 import { type ChangeEvent } from "react";
 import { setTheme } from "../../model/themeSlice.ts";
 import { useDispatch, useSelector } from "../../../../app/store/store.ts";
@@ -13,8 +14,15 @@ export const ThemeToggle = () => {
   };
 
   return (
-    <Input type={"checkbox"} id={"theme"} onChange={onChangeHandler} checked={theme === "light"}>
-      <label htmlFor="theme">theme</label>
-    </Input>
+    <label htmlFor="theme" className={styles.switch}>
+      <Input
+        type={"checkbox"}
+        id={"theme"}
+        onChange={onChangeHandler}
+        checked={theme === "light"}
+        className={styles.switchInput}
+      />
+      <span className={styles.switchSlider}></span>
+    </label>
   );
 };

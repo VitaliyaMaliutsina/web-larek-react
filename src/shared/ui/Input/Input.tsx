@@ -1,9 +1,22 @@
 import styles from "./input.module.scss";
 import * as React from "react";
+import clsx from "clsx";
 
 type TProps = React.ComponentProps<"input"> & {};
 export const Input = (props: TProps) => {
-  const { type = "text", placeholder, id, onChange, onClick, value, name, required, autoComplete, checked } = props;
+  const {
+    type = "text",
+    placeholder,
+    id,
+    onChange,
+    onClick,
+    value,
+    name,
+    required,
+    autoComplete,
+    checked,
+    className,
+  } = props;
 
   return (
     <input
@@ -11,7 +24,7 @@ export const Input = (props: TProps) => {
       id={id}
       name={name}
       type={type}
-      className={styles.input}
+      className={clsx(className ? className : styles.input)}
       placeholder={placeholder}
       onChange={onChange}
       onClick={onClick}

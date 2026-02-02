@@ -1,0 +1,47 @@
+.switch {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-color: #B783FA;
+  border-radius: 15px;
+}
+
+.switchInput {
+  height: 0;
+  width: 0;
+  opacity: 0;
+
+  &:focus + .switchSlider {
+    box-shadow: 0 0 1px rebeccapurple;
+  }
+
+  &:checked + .switchSlider {
+    background-color: powderblue;
+  }
+
+  &:checked + .switchSlider::before {
+    transform: translateX(30px);
+  }
+
+}
+
+.switchSlider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #FAD883;
+  border-radius: 15px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+    height: 23px;
+    width: 20px;
+    background-color: plum;
+    border-radius: 50%;
+  }
+
+}
